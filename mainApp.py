@@ -61,4 +61,14 @@ def cancel():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    import os
+    from flask import Flask
+
+    app = Flask(__name__)
+
+    # Setze den Port aus der Umgebungsvariable PORT oder benutze einen Standardport
+    port = int(os.environ.get("PORT", 5000))  # Default ist 5000, falls PORT nicht gesetzt ist
+
+    if __name__ == "__main__":
+        app.run(host="0.0.0.0", port=port)
+
